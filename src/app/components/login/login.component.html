@@ -1,0 +1,50 @@
+<div class="text-center mt-5">
+
+  <h1>Welcome to Angular-Truffle</h1>
+  <br>
+
+  <!-- <div class="">
+
+    <h4>Login</h4>
+    <br>
+    <label for="">Username </label>
+    <input type="text" [(ngModel)]="model.username">
+    <br>
+
+    <label for="">Password </label>
+    <input type="password" [(ngModel)]="model.password">
+    <br>
+
+    <button (click)="login()">Login</button>
+
+  </div> -->
+
+  <div class="form-group col-md-4">
+
+    <div *ngIf="model.accounts.length == 0">
+      <p class="text-danger">No account available</p>
+    </div>
+
+    <div *ngIf="model.accounts.length > 0">
+      <p>List of available accounts</p>
+      <li *ngFor="let account of model.accounts">{{account}}</li>
+    </div>
+
+    <hr>
+
+    <label for="">Select Account</label>
+    <select #selectedAccount name="" id="" class="form-control">
+      <option value="">Select an account..</option>
+      <ng-container *ngFor="let account of model.accounts">
+        <option value="{{account}}">{{account}}</option>
+      </ng-container>
+      <!-- <option *ngFor="let account of model.accounts;" value="{{account}}">{{account}}</option> -->
+    </select>
+
+    <br>
+    <button class="btn btn-primary" (click)="login(selectedAccount.value)">Login</button>
+
+
+  </div>
+
+</div>

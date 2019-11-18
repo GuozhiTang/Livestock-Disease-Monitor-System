@@ -1,6 +1,6 @@
 # Livestock-Disease-Monitor-System
 
-![](https://img.shields.io/badge/solidity-^0.5.8-red.svg) ![](https://img.shields.io/badge/angular-^7.2.0-green.svg)
+![](https://img.shields.io/badge/solidity-^0.5.8-red.svg) ![](https://img.shields.io/badge/angular-^7.1.0-green.svg)
 
 Implemented blockchain technology to track the meat supply chain, guarantee the trust of meat safety and reduce the economic impact caused from livestock disease.
 
@@ -23,13 +23,7 @@ brew install node
 
 ### Installing
 
-* Install the dependencies for the backend at root directory:
-
-```Bash
-npm install
-```
-
-* Then install the dependencies for angular frontend seperately at `./angular-src` folder:
+* Install the dependencies for angular frontend seperately at root folder:
 
 ```Bash
 cd angular-src
@@ -45,12 +39,12 @@ npm install
 ganache-cli
 ```
 
-* Then to compile and migrate truffle in Terminal:
+* Then to compile and migrate truffle in another Terminal:
 ```Bash
 truffle compile && truffle migrate
 ```
 
-* Finally, change to the `./angular-src` and run the front-end server:
+* Finally, run the front-end server at root directory:
 ```Bash
 ng serve
 ```
