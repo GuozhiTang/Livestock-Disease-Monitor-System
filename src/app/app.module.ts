@@ -10,6 +10,8 @@ import { AppComponent } from "./app.component";
 import { HomeComponent } from "./components/home/home.component";
 import { LoginComponent } from "./components/login/login.component";
 import { TestComponent } from './components/test/test.component';
+import { TesthomeComponent } from './components/testhome/testhome.component';
+import { TestloginComponent } from './components/testlogin/testlogin.component';
 
 const routes: Routes = [
   { path: "", component: LoginComponent },
@@ -25,7 +27,9 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     LoginComponent,
-    TestComponent
+    TestComponent,
+    TesthomeComponent,
+    TestloginComponent
   ],
   imports: [
     BrowserAnimationsModule,
