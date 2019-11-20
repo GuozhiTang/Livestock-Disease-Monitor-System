@@ -14,6 +14,8 @@ import { TesthomeComponent } from './components/testhome/testhome.component';
 import { TestloginComponent } from './components/testlogin/testlogin.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 const routes: Routes = [
   { path: "", component: HomeComponent },
   { path: "login", component: LoginComponent },
@@ -40,7 +42,9 @@ const routes: Routes = [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    // FlashMessagesModule
+    FlashMessagesModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
