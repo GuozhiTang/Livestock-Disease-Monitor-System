@@ -12,12 +12,14 @@ import { LoginComponent } from "./components/login/login.component";
 import { TestComponent } from './components/test/test.component';
 import { TesthomeComponent } from './components/testhome/testhome.component';
 import { TestloginComponent } from './components/testlogin/testlogin.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
-  { path: "", component: LoginComponent },
+  { path: "", component: HomeComponent },
   { path: "login", component: LoginComponent },
-  { path: "home", component: HomeComponent },
   { path: "test", component: TestComponent },
+  { path: "testhome", component: TesthomeComponent },
+  { path: "testlogin", component: TestloginComponent },
   { path: "", redirectTo: "/", pathMatch: "full" },
   { path: "**", component: HomeComponent }
 ];
@@ -29,7 +31,8 @@ const routes: Routes = [
     LoginComponent,
     TestComponent,
     TesthomeComponent,
-    TestloginComponent
+    TestloginComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserAnimationsModule,
