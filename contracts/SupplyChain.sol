@@ -19,6 +19,8 @@ contract SupplyChain {
     bytes32 producerName;
     uint[] timestamps;
     bytes32 retailerName;
+    bytes32[] retailerNames;
+    uint[] retailerTimes;
     uint sellTime;
     bytes32 customerName;
     bool isBinding;
@@ -68,7 +70,7 @@ contract SupplyChain {
 
   // this interface just for producer
   function newProduct (bytes32 livestockID, bytes32 livestockName, uint timestamp) public returns(bool, bytes32) {
-    Livestock memory livestock = livestockMap[livestockID];
+    Livestock storage livestock = livestockMap[livestockID];
     if (livestock.livestockID != 0x0) {
       return (false, "The livestockID already exist!");
     }
@@ -85,7 +87,7 @@ contract SupplyChain {
 
   // this interface just for retailer
   function retailerInnerTransfer (bytes32 livestockID, uint timestamp) public returns(bool Boolean, string memory String) {
-    Livestock memory livestock = livestockMap[livestockID];
+    Livestock storage livestock = livestockMap[livestockID];
     if (livestock.livestockID == 0x0) {
       return (false, "The livestockID does not exist!");
     }
@@ -99,7 +101,7 @@ contract SupplyChain {
   }
 
   function fromRetailerToCustomer (bytes32 livestockID, uint timestamp) public returns(bool Boolean, string memory String) {
-    Livestock memory livestock = livestockMap[livestockID];
+    Livestock storage livestock = livestockMap[livestockID];
     if (livestock.livestockID == 0x0) {
       return (false, "The livestockID don't sxist!");
     }
@@ -111,7 +113,7 @@ contract SupplyChain {
     bool, string memory, bytes32 producerName, uint produceTime, bytes32[] memory retailerNames,
     uint[] memory retailerTimes, bytes32 customerName, uint sellTime
   ) {
-    Livestock memory livestock = livestockMap[livestockID];
+    Livestock storage livestock = livestockMap[livestockID];
     if (!whiteList[msg.sender]) {
       return (false, "no access", producerName, produceTime, retailerNames, retailerTimes, customerName, livestock.sellTime);
     }
@@ -125,7 +127,7 @@ contract SupplyChain {
     bool, string memory, bytes32 producerName, uint produceTime, bytes32[] memory retailerNames,
     uint[] memory retailerTimes, bytes32 customerName, uint sellTime
   ){
-    Livestock memory livestock = livestockMap[livestockID];
+    Livestock storage livestock = livestockMap[livestockID];
     if (livestock.livestockID == 0x0) {
       return (false, "The livestockID does not exist", producerName, produceTime, retailerNames, retailerTimes, customerName, sellTime);
     }
@@ -143,7 +145,7 @@ contract SupplyChain {
       if (livestock.owner != msg.sender) {
         return (false, "warning, this livestock has been bound", producerName, produceTime, retailerNames, retailerTimes, customerName, sellTime);
       } else {
-        return (false, "has already bind", livestock.producerName, livestock.retailerName, livestock.customerName);
+        return (false, "has already bind", livestock.producerName, livestock.produceTime, livestock.retailerNames, livestock.retailerTimes, livestock.customerName, livestock.sellTime);
       }
     }
     if (livestock.sellTime > 0) {
@@ -151,7 +153,7 @@ contract SupplyChain {
       livestock.owner = msg.sender;
       livestock.customerName = user.name;
     }
-    return (true, "Sucess", livestock.producerName, livestock.produceTime, livestock,retailerNames, livestock.timestamps, livestock.customerName, livestock.sellTime);
+    return (true, "Sucess", livestock.producerName, livestock.produceTime, livestock.retailerNames, livestock.retailerTimes, livestock.customerName, livestock.sellTime);
   }
 
 }
