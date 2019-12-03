@@ -1,14 +1,14 @@
-import { AppPage } from './app.po';
+import { AngularTrufflePage } from './app.po';
 
-describe('angular-truffle-box App', () => {
-  let page: AppPage;
+describe('angular-truffle App', () => {
+  let page: AngularTrufflePage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new AngularTrufflePage();
   });
 
-  it('should display welcome message', () => {
+  it('should display message saying app works', () => {
     page.navigateTo();
-    expect(page.getHeader()).toContain('Angular Truffle Box');
+    expect(page.getParagraphText()).toEqual('app works!');
   });
 });

@@ -9,10 +9,7 @@ exports.config = {
     './e2e/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    'browserName': 'chrome',
-    chromeOptions: {
-      args: [ "--headless", "--no-sandbox", "--disable-gpu", "--window-size=800,600" ]
-    }
+    'browserName': 'chrome'
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
@@ -22,13 +19,12 @@ exports.config = {
     defaultTimeoutInterval: 30000,
     print: function() {}
   },
-  plugins: [{
-    package: 'protractor-console-plugin'
-  }],
-  onPrepare() {
+  beforeLaunch: function() {
     require('ts-node').register({
       project: 'e2e/tsconfig.e2e.json'
     });
+  },
+  onPrepare() {
     jasmine.getEnv().addReporter(new SpecReporter({ spec: { displayStacktrace: true } }));
   }
 };

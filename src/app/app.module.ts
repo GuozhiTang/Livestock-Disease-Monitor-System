@@ -1,52 +1,41 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
-import { RouterModule, Routes } from "@angular/router";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { AppComponent } from './app.component';
+import { AuthService } from './services/auth.service';
+import { ContractService } from './services/contract.service';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+import { RetailerComponent } from './retailer/retailer.component';
+import { DistributorComponent } from './distributor/distributor.component';
+import { ManufactureComponent } from './manufacture/manufacture.component';
+import { SupplierComponent } from './supplier/supplier.component';
+import { LoginComponent } from './login/login.component';
 
-import { AppComponent } from "./app.component";
-import { HomeComponent } from "./components/home/home.component";
-import { LoginComponent } from "./components/login/login.component";
-import { TestComponent } from './components/test/test.component';
-import { TesthomeComponent } from './components/testhome/testhome.component';
-import { TestloginComponent } from './components/testlogin/testlogin.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-
-import { FlashMessagesModule } from 'angular2-flash-messages';
-
-const routes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "login", component: LoginComponent },
-  { path: "test", component: TestComponent },
-  { path: "testhome", component: TesthomeComponent },
-  { path: "testlogin", component: TestloginComponent },
-  { path: "", redirectTo: "/", pathMatch: "full" },
-  { path: "**", component: HomeComponent }
-];
+import { IpfsService } from './services/ipfs.service'
+import { RouteModule } from './route/route.module'
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    TestComponent,
-    TesthomeComponent,
-    TestloginComponent,
-    NavbarComponent
-  ],
   imports: [
-    BrowserAnimationsModule,
-    CommonModule,
     BrowserModule,
     FormsModule,
+    HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
-    // FlashMessagesModule
-    FlashMessagesModule.forRoot(),
+    RouteModule
   ],
-  providers: [],
+  declarations: [
+    AppComponent,
+    RetailerComponent,
+    DistributorComponent,
+    ManufactureComponent,
+    SupplierComponent,
+    LoginComponent
+  ],
+  providers: [AuthService, ContractService, IpfsService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+  }
+}

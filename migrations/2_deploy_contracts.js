@@ -1,10 +1,6 @@
-var ConvertLib = artifacts.require("./ConvertLib.sol");
-var MetaCoin = artifacts.require("./MetaCoin.sol");
-var SupplyChain = artifacts.require('./SupplyChain.sol');
-
-module.exports = function (deployer) {
-  deployer.deploy(ConvertLib);
-  deployer.link(ConvertLib, MetaCoin);
-  deployer.deploy(MetaCoin);
-  deployer.deploy(SupplyChain);
+var UserRegistry = artifacts.require("./UserRegistry.sol");
+var OrderRegistry = artifacts.require("./OrderRegistry.sol");
+module.exports = function(deployer) {
+  deployer.deploy(UserRegistry);
+  deployer.deploy(OrderRegistry);
 };
