@@ -1,12 +1,12 @@
 # Livestock-Disease-Monitor-System
 
-![](https://img.shields.io/badge/solidity-^0.5.8-red.svg) ![](https://img.shields.io/badge/angular-^4.0.0-green.svg)	![](https://img.shields.io/badge/truffle-^2.0.5-blue.svg)	![](https://img.shields.io/badge/express-^4.15.4-blue.svg)	![](https://img.shields.io/badge/IPFS-^0.4.22-blue.svg)	
+![](https://img.shields.io/badge/solidity-^0.5.8-red.svg) ![](https://img.shields.io/badge/angular-^4.0.0-green.svg)	![](https://img.shields.io/badge/materialize-^1.0.0-green.svg)![](https://img.shields.io/badge/truffle-^2.0.5-blue.svg)	![](https://img.shields.io/badge/express-^4.15.4-blue.svg)	![](https://img.shields.io/badge/IPFS-^0.4.22-blue.svg)	
 
 Implemented blockchain technology to track the meat supply chain, guarantee the trust of meat safety and reduce the economic impact caused from livestock disease.
 
 Built a blockchain web application that all levels of participants in meat supply chain can access to certify their duties. 
 
-Adopted Solidity to build the smart contracts. Applied Angular-CLI for the UI interface. Guaranteed the connection between front and back end by Web3js + Truffle + IPFS + Ethereum
+Adopted Solidity to build the smart contracts. Applied Angular-CLI + Materialize for the UI interface. Guaranteed the connection between front and back end by Web3js + Truffle + IPFS + Ethereum
 
 ## Getting Started
 
@@ -102,3 +102,4 @@ Then, we can see our project locally on http://localhost:4200.
 * [Express](https://expressjs.com/) - Web backend framework.
 * [Angular4](https://angular.io/) - Web frontend framework.
 * [Nodejs](https://nodejs.org/en/) - Javascript running environment.
+* [Materialize](https://materializecss.com/) - A modern responsive front-end framework based on Material Design
