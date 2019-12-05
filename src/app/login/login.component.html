@@ -1,16 +1,18 @@
-<div class="head blue-grey">
-  <h1>Livestock & Disease Monitor System</h1>
+<div class="head" style="background-image: url('../../assets/images/Health.png');">
+  <!-- <div style="background-color: white;"> -->
+    <h1>Livestock & Disease Monitor System</h1>
+  <!-- </div> -->
 </div>
 <div class="row">
   <div class="s12 m12">
     <form>
       <div class="row">
         <div class="file-field input-field col s6 offset-s3">
-          <h5><i class="fas fa-exclamation-triangle"></i> Login with your keystore file as a distributor, manufacturer, retailer or supplier at this time:</h5>
+          <h5><i class="fas fa-exclamation-triangle"></i> Login with your keystore file and password as a supplier, manufacturer, distributor or retailer at this time:</h5>
         </div>
         <div class="file-field input-field col s6 offset-s3">
-          <div class="btn">
-            <span><i class="fas fa-upload"></i> Keystore</span>
+          <div class="btn cyan darken-3">
+            <span><i class="fas fa-file-upload"></i> Keystore</span>
             <input type="file" (change)="fileChange($event)" >
           </div>
           <div class="file-path-wrapper">
@@ -24,7 +26,7 @@
       </div>
       <div class="row">
         <div class="col s3 offset-s5">
-          <button class="btn waves-effect waves-light" type="button" (click)='login()' name="action">
+          <button class="btn cyan darken-3" type="button" (click)='login()' name="action">
             <i class="fas fa-sign-in-alt"></i> Login
           </button>
         </div>

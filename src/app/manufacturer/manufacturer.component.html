@@ -13,8 +13,8 @@
     <form>
     <div class="row">
       <div class="col s12 m10 offset-m1">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
+        <div class="card">
+          <div class="card-content">
             <div class="row">
               <div class="col s12">
                 <div class="row">
@@ -39,8 +39,8 @@
     </div>
     <div class="row">
       <div class="col s12 m10 offset-m1">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
+        <div class="card">
+          <div class="card-content">
             <div class="row">
               <div class="col s12">
                 <div class="row">
@@ -57,7 +57,7 @@
             </div>
             <div class="row">
               <div class="col s3 offset-s5">
-                <button class="btn waves-effect waves-light" type="button" (click)='onSubmit($event)' name="action">
+                <button class="btn cyan darken-3" type="button" (click)='onSubmit($event)' name="action">
                   <i class="fas fa-satellite-dish"></i> Request Shipment
                 </button>
               </div>
@@ -72,8 +72,8 @@
     <form>
     <div class="row">
       <div class="col s12 m10 offset-m1">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
+        <div class="card">
+          <div class="card-content">
             <div class="row">
               <div class="col s12">
                 <div class="row">
@@ -82,8 +82,8 @@
                     <label for="name">Product Name</label>
                   </div>
                   <div class="file-field input-field col s6">
-                    <div class="btn">
-                      <span>Report</span>
+                    <div class="btn cyan darken-3">
+                      <span><i class="fas fa-file-upload"></i> Report</span>
                       <input type="file" (change)='fileChange($event)'>
                     </div>
                     <div class="file-path-wrapper">
@@ -99,8 +99,8 @@
     </div>
     <div class="row">
       <div class="col s12 m10 offset-m1">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
+        <div class="card">
+          <div class="card-content">
             <div class="row">
                 <div class="input-field col s6">
                   <input disabled #orderNo id="order_no" type="text" class="validate">
@@ -117,8 +117,8 @@
     </div>
     <div class="row">
       <div class="col s12 m10 offset-m1">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
+        <div class="card">
+          <div class="card-content">
             <div class="row">
               <div class="col s12">
                 <div class="row">
@@ -139,7 +139,7 @@
             </div>
             <div class="row">
               <div class="col s3 offset-s5">
-                <button class="btn waves-effect waves-light" type="button" (click)='onSubmitReport($event)' name="action">
+                <button class="btn cyan darken-3" type="button" (click)='onSubmitReport($event)' name="action">
                   <i class="fas fa-paper-plane"></i> Send Shipment
                 </button>
               </div>
@@ -154,18 +154,17 @@
   <div id="reports" class="col s12">
     <div class="row">
       <div class="col s12 m10 offset-m1">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
+        <div class="card">
+          <div class="card-content">
             <div class="row">
               <div class="col s12">
                   <table>
                     <thead>
                       <tr>
-                          <th>Order Number</th>
-                          <th>Download Report</th>
+                        <th>Order Number</th>
+                        <th>Download Report</th>
                       </tr>
                     </thead>
-
                     <tbody>
                       <tr *ngFor="let data of dataValue">
                         <td>{{data.orderno}}</td>

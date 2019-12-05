@@ -9,7 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { RetailerComponent } from './retailer/retailer.component';
 import { DistributorComponent } from './distributor/distributor.component';
-import { ManufactureComponent } from './manufacture/manufacture.component';
+import { ManufacturerComponent } from './manufacturer/manufacturer.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component'
@@ -21,7 +21,7 @@ const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'supplier', component: SupplierComponent },
-  { path: 'manufacturer', component: ManufactureComponent },
+  { path: 'manufacturer', component: ManufacturerComponent },
   { path: 'distributor', component: DistributorComponent },
   { path: 'retailer', component: RetailerComponent },
   // { path: 'navbar', component: NavbarComponent },
@@ -39,7 +39,7 @@ const appRoutes: Routes = [
     AppComponent,
     RetailerComponent,
     DistributorComponent,
-    ManufactureComponent,
+    ManufacturerComponent,
     SupplierComponent,
     LoginComponent,
     NavbarComponent

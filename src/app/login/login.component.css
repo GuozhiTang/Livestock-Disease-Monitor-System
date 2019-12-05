@@ -1,9 +1,11 @@
 .head{
+  width: 86%;
   height:50%;
   text-align:center;
   padding-top:10%;
   padding-bottom: 10%;
+  margin-left: 7%;
 }
 h1{
-  color:#fff;
+  color:#4a4a4a;
 }

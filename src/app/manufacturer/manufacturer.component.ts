@@ -7,11 +7,11 @@ import { AuthService } from '../services/auth.service';
 declare const Materialize;
 
 @Component({
-  selector: 'app-manufacture',
-  templateUrl: './manufacture.component.html',
-  styleUrls: ['./manufacture.component.css']
+  selector: 'app-manufacturer',
+  templateUrl: './manufacturer.component.html',
+  styleUrls: ['./manufacturer.component.css']
 })
-export class ManufactureComponent implements OnInit {
+export class ManufacturerComponent implements OnInit {
 
   dataValue = [];
   @ViewChild('product') product: any;
