@@ -27,9 +27,14 @@ export class ManufactureComponent implements OnInit {
   @ViewChild('cost') price1: any;
   @ViewChild('quant') quantity1: any;
 
-  name = 'Manufacturer';
+  Role = 'Manufacturer';
 
-  constructor(private ipfs: IpfsService, private contract: ContractService, private http: HttpClient) { }
+  constructor(
+    private ipfs: IpfsService,
+    private contract: ContractService,
+    private http: HttpClient,
+  ) { }
+
   ngOnInit() {
     this.contract.checkMfgTrigger.subscribe(result => {
       if (result !== 'noop') {
@@ -43,6 +48,10 @@ export class ManufactureComponent implements OnInit {
     });
   }
 
+  /**
+   * 
+   * @param event 
+   */
   fileChange(event: any) {
     this.ipfs.fileChange(event.target.files).subscribe(
       data => { this.report.nativeElement.value = data.msg; },
@@ -50,6 +59,10 @@ export class ManufactureComponent implements OnInit {
       );
   }
 
+  /**
+   * 
+   * @param orderno 
+   */
   setData(orderno) {
     console.log(orderno);
     this.contract.fetchInitialDetails(orderno).then(result => {
@@ -70,6 +83,10 @@ export class ManufactureComponent implements OnInit {
     });
   }
 
+  /**
+   * 
+   * @param result 
+   */
   setReport(result) {
     if ( result[1] == '3') {
       this.http.get('http://127.0.0.1:8080/ipfs/' + result[2], { responseType: 'text'}).subscribe(response => {
@@ -78,6 +95,10 @@ export class ManufactureComponent implements OnInit {
     }
   }
 
+  /**
+   * The function to submit the report to IPFS
+   * @param event 
+   */
   onSubmitReport(event) {
     this.contract.setReport(
       this.orderNo.nativeElement.value, 2,
@@ -86,9 +107,13 @@ export class ManufactureComponent implements OnInit {
     });
   }
 
+  /**
+   * Set, store and print the data typed by manufacturer
+   * @param event 
+   */
   onSubmit(event) {
     this.contract.setMfgValues(this.orderNo1.nativeElement.value,
-      this.name,
+      this.Role,
       this.product1.nativeElement.value,
       this.deliveryDate1.nativeElement.value,
       this.price1.nativeElement.value,

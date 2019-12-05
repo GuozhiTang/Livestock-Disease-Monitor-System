@@ -26,7 +26,7 @@ export class DistributorComponent implements OnInit {
   @ViewChild('cost') price1: any;
   @ViewChild('quant') quantity1: any;
 
-  name = 'Distributor';
+  Role = 'Distributor';
 
   constructor(private ipfs: IpfsService, private contract: ContractService, private http: HttpClient) { }
   ngOnInit() {
@@ -85,7 +85,7 @@ export class DistributorComponent implements OnInit {
 
   onSubmit(event) {
     this.contract.setDistValues(this.orderNo1.nativeElement.value,
-      this.name,
+      this.Role,
       this.deliveryDate1.nativeElement.value,
       this.price1.nativeElement.value,
       this.quantity1.nativeElement.value).then(result => {

@@ -11,7 +11,7 @@ declare const Materialize;
 })
 export class SupplierComponent implements OnInit {
 
-  name = 'Supplier'
+  Role = 'Supplier'
 
   @ViewChild('product') product: any;
   @ViewChild('orderNo') orderNo: any;
@@ -34,6 +34,10 @@ export class SupplierComponent implements OnInit {
     });
   }
 
+  /**
+   * If there exists an order number settled by manufacturer, then directly load the data in text fields
+   * @param orderno The order number submitted by manufacturer
+   */
   setData(orderno) {
     console.log(orderno);
     this.contract.getMfgDetails(orderno).then(result => {

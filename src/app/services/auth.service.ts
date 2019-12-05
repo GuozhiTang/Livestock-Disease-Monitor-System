@@ -11,6 +11,7 @@ export class AuthService {
   web3: any;
   UserRegistry: any;
   AuthContract: any;
+  
   constructor() {
     this.web3 = new Web3(
       new Web3.providers.HttpProvider('http://localhost:8545'));

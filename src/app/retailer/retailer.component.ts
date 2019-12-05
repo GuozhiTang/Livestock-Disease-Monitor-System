@@ -8,7 +8,7 @@ declare var Materialize;
   styleUrls: ['./retailer.component.css']
 })
 export class RetailerComponent implements OnInit {
-name = 'Retailer';
+Role = 'Retailer';
 dataValue = [];
 
   @ViewChild('product') product: any;
@@ -18,8 +18,10 @@ dataValue = [];
   @ViewChild('price') price: any;
   @ViewChild('quantity') quantity: any;
 
-  constructor(private contract: ContractService, private http: HttpClient) {
-   }
+  constructor(
+    private contract: ContractService,
+    private http: HttpClient
+  ) { }
 
   ngOnInit() {
     this.contract.checkReportTrigger.map(result => {
@@ -28,6 +30,11 @@ dataValue = [];
       }
     });
   }
+
+  /**
+   * 
+   * @param result 
+   */
   setData(result) {
       if (result[1] == '1') {
         this.http.get('http://127.0.0.1:8080/ipfs/' + result[2], { responseType: 'text'}).subscribe(response => {
@@ -36,6 +43,7 @@ dataValue = [];
       }
     }
 
+    
   onSubmit(event) {
     this.contract.createOrder(this.orderNo.nativeElement.value,
       this.product.nativeElement.value,

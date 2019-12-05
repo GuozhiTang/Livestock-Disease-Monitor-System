@@ -1,12 +1,13 @@
 <nav>
   <div class="nav-wrapper blue-grey darken-2">
-    <a href="#" class="brand-logo">Supply Chain Management</a>
+    <a href="#" class="brand-logo">Livestock & Disease Monitor System</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li>{{name}}</li>
+      <li>Your Role: <b>{{Role}}</b></li>
       <li><a routerLink='/login' href="#">Logout</a></li>
     </ul>
   </div>
 </nav>
+
 <div class="row">
   <div class="col s6 offset-s3">
     <ul class="tabs">
@@ -63,8 +64,8 @@
             </div>
             <div class="row">
               <div class="col s3 offset-s5">
-                <button class="btn waves-effect waves-light" type="button" (click)='onSubmit($event)' name="action">Submit
-                      <i class="material-icons right">send</i>
+                <button class="btn waves-effect waves-light" type="button" (click)='onSubmit($event)' name="action">
+                  <i class="fas fa-satellite-dish"></i> Request Shipment
                 </button>
               </div>
             </div>
@@ -145,8 +146,8 @@
             </div>
             <div class="row">
               <div class="col s3 offset-s5">
-                <button class="btn waves-effect waves-light" type="button" (click)='onSubmitReport($event)' name="action">Submit
-                      <i class="material-icons right">send</i>
+                <button class="btn waves-effect waves-light" type="button" (click)='onSubmitReport($event)' name="action">
+                  <i class="fas fa-paper-plane"></i> Send Shipment
                 </button>
               </div>
             </div>
@@ -177,7 +178,6 @@
                         <td>{{data.orderno}}</td>
                         <td><a [attr.href]="data.fileInfo" target="_blank"><i class="material-icons">cloud_download</i></a></td>
                       </tr>
-
                     </tbody>
                   </table>
               </div>
