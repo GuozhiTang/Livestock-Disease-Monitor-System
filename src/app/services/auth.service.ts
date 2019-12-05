@@ -11,6 +11,7 @@ export class AuthService {
   web3: any;
   UserRegistry: any;
   AuthContract: any;
+  Role: String;
   
   constructor() {
     this.web3 = new Web3(
@@ -47,5 +48,9 @@ export class AuthService {
       role = 'not found';
     }
     return role;
+  }
+
+  getRole (role) {
+    this.Role = role;
   }
 }

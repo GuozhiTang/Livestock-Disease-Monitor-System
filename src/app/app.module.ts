@@ -12,8 +12,10 @@ import { DistributorComponent } from './distributor/distributor.component';
 import { ManufactureComponent } from './manufacture/manufacture.component';
 import { SupplierComponent } from './supplier/supplier.component';
 import { LoginComponent } from './login/login.component';
+import { NavbarComponent } from './navbar/navbar.component'
 
-import { IpfsService } from './services/ipfs.service'
+import { IpfsService } from './services/ipfs.service';
+
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -22,6 +24,7 @@ const appRoutes: Routes = [
   { path: 'manufacturer', component: ManufactureComponent },
   { path: 'distributor', component: DistributorComponent },
   { path: 'retailer', component: RetailerComponent },
+  // { path: 'navbar', component: NavbarComponent },
 ]
 
 @NgModule({
@@ -38,7 +41,8 @@ const appRoutes: Routes = [
     DistributorComponent,
     ManufactureComponent,
     SupplierComponent,
-    LoginComponent
+    LoginComponent,
+    NavbarComponent
   ],
   providers: [AuthService, ContractService, IpfsService],
   bootstrap: [AppComponent]

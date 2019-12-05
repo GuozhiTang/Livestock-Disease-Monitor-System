@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IpfsService } from '../services/ipfs.service';
 import 'rxjs/add/operator/map';
 import { ContractService } from '../services/contract.service';
-import { HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../services/auth.service';
 declare const Materialize;
 
 @Component({
@@ -33,6 +34,7 @@ export class ManufactureComponent implements OnInit {
     private ipfs: IpfsService,
     private contract: ContractService,
     private http: HttpClient,
+    private auth: AuthService,
   ) { }
 
   ngOnInit() {
@@ -46,6 +48,7 @@ export class ManufactureComponent implements OnInit {
       this.setReport(result);
       }
     });
+    this.auth.getRole(this.Role);
   }
 
   /**
