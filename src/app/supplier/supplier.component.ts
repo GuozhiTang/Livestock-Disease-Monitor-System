@@ -21,7 +21,11 @@ export class SupplierComponent implements OnInit {
   @ViewChild('quantity') quantity: any;
   @ViewChild('report') report: any;
 
-  constructor(private ipfs: IpfsService, private contract: ContractService) { }
+  constructor(
+    private ipfs: IpfsService,
+    private contract: ContractService
+  ) { }
+
   ngOnInit() {
     this.contract.checkSupplierTrigger.subscribe(result => {
       if (result !== 'noop') {
@@ -42,13 +46,24 @@ export class SupplierComponent implements OnInit {
       Materialize.updateTextFields();
     })};
 
+  /**
+   * Function to handle the report file uploaded
+   * @param event the event for file uploaded
+   */
   fileChange(event: any) {
     this.ipfs.fileChange(event.target.files).subscribe(
-      data => { this.report.nativeElement.value = data.msg; },
-      error => {console.log(error)}
+      data => { 
+        this.report.nativeElement.value = data.msg;
+        console.log('datamsg: ' + data.msg);
+      },
+      error => {console.log('error: ' + error)}
       );
   }
 
+  /**
+   * The function to submit the report and related information
+   * @param event event to submit the report
+   */
   onSubmitReport(event) {
     this.contract.setReport(
       this.orderNo.nativeElement.value, 3,

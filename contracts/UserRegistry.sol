@@ -6,10 +6,10 @@ contract UserRegistry {
 
   mapping(string=>string) registry;
 
-modifier onlyBy(address _account)
+  modifier onlyBy(address _account)
     {
-        require(msg.sender == _account);
-        _;
+      require(msg.sender == _account);
+      _;
     }
 
   function setRole (string memory addr, string memory role) public onlyBy(owner) {

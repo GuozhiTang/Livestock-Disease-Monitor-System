@@ -10934,7 +10934,7 @@
     "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
   "networks": {
-    "1575330858507": {
+    "5777": {
       "events": {
         "0x49a8e1507a6f693a113e03a6b7d2ca032ebdf2908f1fcbc1b021ed7845cadf8a": {
           "anonymous": false,
@@ -11000,81 +11000,12 @@
         }
       },
       "links": {},
-      "address": "0x3355ba628F2DB3e18C9B69579174B4eDF94ECca5",
-      "transactionHash": "0x7588514e21314ab28bab5a08d8b5ccb88fd8f26fcaf2e215a3474449e9474651"
-    },
-    "1575330933209": {
-      "events": {
-        "0x49a8e1507a6f693a113e03a6b7d2ca032ebdf2908f1fcbc1b021ed7845cadf8a": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "orderno",
-              "type": "string"
-            }
-          ],
-          "name": "OrderGenerated",
-          "type": "event",
-          "signature": "0x49a8e1507a6f693a113e03a6b7d2ca032ebdf2908f1fcbc1b021ed7845cadf8a"
-        },
-        "0x99d100a02e30d6fbe9128c70416db30063e0eb352d3961159f35ab3471a37fc3": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "orderno",
-              "type": "string"
-            }
-          ],
-          "name": "MfgTrigger",
-          "type": "event",
-          "signature": "0x99d100a02e30d6fbe9128c70416db30063e0eb352d3961159f35ab3471a37fc3"
-        },
-        "0xa5e5df1b20cfee00f20330f3b591592f6c22c05c855ac7245839cef3545f7204": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "orderno",
-              "type": "string"
-            }
-          ],
-          "name": "SupplyTrigger",
-          "type": "event",
-          "signature": "0xa5e5df1b20cfee00f20330f3b591592f6c22c05c855ac7245839cef3545f7204"
-        },
-        "0xd9b0f0df633a148a4fe7319855c86248356bd58d003cabe1fc554c4a32eee836": {
-          "anonymous": false,
-          "inputs": [
-            {
-              "indexed": false,
-              "name": "orderno",
-              "type": "string"
-            },
-            {
-              "indexed": false,
-              "name": "category",
-              "type": "uint256"
-            },
-            {
-              "indexed": false,
-              "name": "report",
-              "type": "string"
-            }
-          ],
-          "name": "ReportSubmit",
-          "type": "event",
-          "signature": "0xd9b0f0df633a148a4fe7319855c86248356bd58d003cabe1fc554c4a32eee836"
-        }
-      },
-      "links": {},
-      "address": "0x3c68403AE197F3e58A9A57566fc675D440Cc64Ae",
-      "transactionHash": "0x379d6231d752bdd71ccb0a35a0294ad6f7fb73ccb71923cca335a02a7819b98c"
+      "address": "0x41A3c56Da65FfEeC415Add61C5511c7551f33793",
+      "transactionHash": "0x71b76075d52a01b06f69e9c8a22c45f9224f06a82b3b5beaae6ab7480b8efeb7"
     }
   },
   "schemaVersion": "3.0.16",
-  "updatedAt": "2019-12-02T23:55:47.648Z",
+  "updatedAt": "2019-12-05T01:52:43.836Z",
   "devdoc": {
     "methods": {}
   },

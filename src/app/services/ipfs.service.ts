@@ -7,7 +7,9 @@ const ipfs = require('ipfs-js');
 export class IpfsService {
 
   ipfsEndpoint = 'http://localhost:4201/upload/ipfs';
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http
+  ) { }
 
   fileChange(fileList: FileList) {
     if (fileList.length > 0) {
