@@ -94,6 +94,7 @@ Then, we can see our project locally on http://localhost:4200.
 
 * [Nikhil Bhaskar](https://github.com/Nikhil22) for [Angular CLI + Truffle Starter Dapp](https://github.com/Nikhil22/angular4-truffle-starter-dapp)
 * [MyEtherWallet](https://github.com/kvhnuke/etherwallet)
+* [Shubhendu Shekhar](https://github.com/shekhar-shubhendu) for [Supply Chain](https://github.com/shekhar-shubhendu/supply-chain)
 
 ## Built With
 
