@@ -53,33 +53,55 @@ try {
     console.log("Express Server:", ex);
 }
 
-
+// Set Multer Storage
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, './uploads/')
     },
     filename: function (req, file, cb) {
-        crypto.pseudoRandomBytes(16, function (err, raw) {
-            cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
-        });
+        cb(null, file.originalname + '-' + Date.now() + '.' + mime.extension(file.mimetype));
+        // crypto.pseudoRandomBytes(16, function (err, raw) {
+        //     cb(null, raw.toString('hex') + Date.now() + '.' + mime.extension(file.mimetype));
+        // });
     }
 });
+
 var upload = multer({
     storage: storage
 });
 
+
+// Handling File Uploads - Uploading a Single File
+// app.post('/upload/ipfs', upload.single('uploadFile'), (req, res, next) => {
+//     const file = req.file;
+//     console.log(file);
+//     // if (!file) {
+//     //     res.json({msg: 'Please upload a file'});
+//     // } else {
+//     //     ipfs.add(fs.readFileSync(file), (err, files) => {
+//     //         if (err || typeof(files) == "undefined") {
+//     //             console.log(err);
+//     //             res.json({msg: err});
+//     //         } else {
+//     //             console.log(files);
+//     //             res.json({msg: files});
+//     //         }
+//     //     });
+//     // }
+// });
 app.post('/upload/ipfs', upload.single('uploadFile'), function (request, response) {
     if (!request.file) {
         response.json({
             msg: 'No Files Found.'
         });
     } else {
-        console.log(request);
+        console.log(request.file);
         ipfs.api.id(function (err, res) {
             if (typeof res !== undefined) {
-              var data = "data:"+request.file.mimetype+";base64,"+base64_encode(request.file.path);
+                // var data = "data:"+request.file.mimetype+";base64,"+base64_encode(request.file.path);
+                var data = fs.readFileSync(request.file.path);
                 ipfs.add(data, function (err, resHash) {
-                    fs.unlink(request.file.path);
+                    // fs.unlink(request.file.path);
                     response.json({
                         msg: resHash
                     });

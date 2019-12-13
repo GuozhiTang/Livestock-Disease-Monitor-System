@@ -55,13 +55,15 @@ export class SupplierComponent implements OnInit {
    * @param event the event for file uploaded
    */
   fileChange(event: any) {
+    console.log(event.target.files);
+    // this.ipfs.fileChange(event.target.files);
     this.ipfs.fileChange(event.target.files).subscribe(
       data => { 
         this.report.nativeElement.value = data.msg;
         console.log('datamsg: ' + data.msg);
       },
       error => {console.log('error: ' + error)}
-      );
+    );
   }
 
   /**
@@ -69,11 +71,13 @@ export class SupplierComponent implements OnInit {
    * @param event event to submit the report
    */
   onSubmitReport(event) {
-    this.contract.setReport(
-      this.orderNo.nativeElement.value, 3,
-      this.report.nativeElement.value).then(result => {
-      Materialize.toast('Shipment sent. Tx id: ' + result.tx, 4000);
-    });
+    console.log(this.orderNo.nativeElement.value);
+    console.log(this.report.nativeElement.value);
+    // this.contract.setReport(
+    //   this.orderNo.nativeElement.value, 3,
+    //   this.report.nativeElement.value).then(result => {
+    //   Materialize.toast('Shipment sent. Tx id: ' + result.tx, 4000);
+    // });
   }
 
 }
