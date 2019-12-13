@@ -50,14 +50,15 @@ export class SupplierComponent implements OnInit {
       Materialize.updateTextFields();
     })};
 
+
   /**
-   * Function to handle the report file uploaded
-   * @param event the event for file uploaded
+   * Method to upload the file to IPFS distributed system as well as local directory '../../../uploads'
+   * @param event the upload event with speicific file
    */
-  fileChange(event: any) {
+  fileUpload(event: any) {
     console.log(event.target.files);
     // this.ipfs.fileChange(event.target.files);
-    this.ipfs.fileChange(event.target.files).subscribe(
+    this.ipfs.fileUpload(event.target.files).subscribe(
       data => { 
         this.report.nativeElement.value = data.msg;
         console.log('datamsg: ' + data.msg);
@@ -67,17 +68,17 @@ export class SupplierComponent implements OnInit {
   }
 
   /**
-   * The function to submit the report and related information
-   * @param event event to submit the report
+   * The function to submit the report and relevant information
    */
-  onSubmitReport(event) {
+  onSubmitReport() {
     console.log(this.orderNo.nativeElement.value);
+    // the IPFS Hash value
     console.log(this.report.nativeElement.value);
-    // this.contract.setReport(
-    //   this.orderNo.nativeElement.value, 3,
-    //   this.report.nativeElement.value).then(result => {
-    //   Materialize.toast('Shipment sent. Tx id: ' + result.tx, 4000);
-    // });
+    this.contract.setReport(
+      this.orderNo.nativeElement.value, 3,
+      this.report.nativeElement.value).then(result => {
+      Materialize.toast('Shipment sent. Tx id: ' + result.tx, 4000);
+    });
   }
 
 }

@@ -84,7 +84,7 @@
                   <div class="file-field input-field col s6">
                     <div class="btn cyan darken-3">
                       <span><i class="fas fa-file-upload"></i> Report</span>
-                      <input type="file" (change)='fileChange($event)'>
+                      <input type="file" (change)='fileUpload($event)'>
                     </div>
                     <div class="file-path-wrapper">
                       <input #report class="file-path validate" type="text">
@@ -162,7 +162,7 @@
                     <thead>
                       <tr>
                         <th>Order Number</th>
-                        <th>Download Report</th>
+                        <th>View Report</th>
                       </tr>
                     </thead>
                     <tbody>

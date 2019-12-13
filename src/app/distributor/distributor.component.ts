@@ -43,17 +43,22 @@ export class DistributorComponent implements OnInit {
     });
   }
 
-  fileChange(event: any) {
-    this.ipfs.fileChange(event.target.files).subscribe(
+  fileUpload(event: any) {
+    this.ipfs.fileUpload(event.target.files).subscribe(
       data => { this.report.nativeElement.value = data.msg; },
       error => {console.log(error)}
       );
   }
 
   setReport(result) {
-    this.http.get('http://127.0.0.1:8080/ipfs/' + result[2], { responseType: 'text'}).subscribe(response => {
-      this.dataValue.push({orderno: result[0], fileInfo: response + result[2]});
-    });
+    this.dataValue.push({
+      orderno: result[0],
+      fileInfo: 'https://gateway.ipfs.io/ipfs/' + result[2]
+    }
+  );
+    // this.http.get('http://127.0.0.1:8080/ipfs/' + result[2], { responseType: 'text'}).subscribe(response => {
+    //   this.dataValue.push({orderno: result[0], fileInfo: response + result[2]});
+    // });
   }
   setData(orderno) {
     console.log(orderno);

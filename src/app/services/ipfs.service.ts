@@ -41,7 +41,7 @@ export class IpfsService {
   //   }
   // }
 
-  fileChange(fileList: FileList) {
+  fileUpload(fileList: FileList) {
     if (fileList.length > 0) {
       const file: File = fileList[0];
       const formData: FormData = new FormData();

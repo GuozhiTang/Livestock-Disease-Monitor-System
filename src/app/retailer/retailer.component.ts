@@ -37,9 +37,14 @@ dataValue = [];
    */
   setData(result) {
       if (result[1] == '1') {
-        this.http.get('http://127.0.0.1:8080/ipfs/' + result[2], { responseType: 'text'}).subscribe(response => {
-          this.dataValue.push({orderno: result[0], fileInfo: response + result[2]});
-        });
+        this.dataValue.push({
+          orderno: result[0],
+          fileInfo: 'https://gateway.ipfs.io/ipfs/' + result[2]
+          }
+        );
+        // this.http.get('http://127.0.0.1:8080/ipfs/' + result[2], { responseType: 'text'}).subscribe(response => {
+        //   this.dataValue.push({orderno: result[0], fileInfo: response + result[2]});
+        // });
       }
     }
 
