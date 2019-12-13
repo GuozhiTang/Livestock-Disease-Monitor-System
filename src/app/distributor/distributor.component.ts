@@ -4,11 +4,13 @@ import 'rxjs/add/operator/map';
 import { ContractService } from '../services/contract.service';
 import { HttpClient } from '@angular/common/http'
 declare const Materialize;
+
 @Component({
   selector: 'app-distributor',
   templateUrl: './distributor.component.html',
   styleUrls: ['./distributor.component.css']
 })
+
 export class DistributorComponent implements OnInit {
 
   dataValue=[];
@@ -28,7 +30,12 @@ export class DistributorComponent implements OnInit {
 
   Role = 'Distributor';
 
-  constructor(private ipfs: IpfsService, private contract: ContractService, private http: HttpClient) { }
+  constructor(
+    private ipfs: IpfsService,
+    private contract: ContractService,
+    private http: HttpClient
+  ) { }
+
   ngOnInit() {
     this.contract.checkOrderGen.subscribe(result => {
       if (result !== 'noop') {
@@ -43,6 +50,10 @@ export class DistributorComponent implements OnInit {
     });
   }
 
+  /**
+   * Method to upload the file to IPFS distributed system as well as local directory '../../../uploads'
+   * @param event the upload event with speicific file
+   */
   fileUpload(event: any) {
     this.ipfs.fileUpload(event.target.files).subscribe(
       data => { this.report.nativeElement.value = data.msg; },
@@ -50,6 +61,10 @@ export class DistributorComponent implements OnInit {
       );
   }
 
+  /**
+   * Check whether there exists report from manufacturer, if yes, display it
+   * @param result the return result from manufacturer submission
+   */
   setReport(result) {
     this.dataValue.push({
       orderno: result[0],
@@ -60,6 +75,11 @@ export class DistributorComponent implements OnInit {
     //   this.dataValue.push({orderno: result[0], fileInfo: response + result[2]});
     // });
   }
+
+  /**
+   * Set all the data with existed value from retailer
+   * @param orderno the orderno created by retailer
+   */
   setData(orderno) {
     console.log(orderno);
     this.contract.fetchInitialDetails(orderno).then(result => {
@@ -79,7 +99,10 @@ export class DistributorComponent implements OnInit {
     });
   }
 
-  onSubmitReport(event) {
+  /**
+   * The function to submit the report and relevant information
+   */
+  onSubmitReport() {
     this.contract.setReport(
       this.orderNo.nativeElement.value, 1,
       this.report.nativeElement.value).then(result => {
@@ -88,7 +111,10 @@ export class DistributorComponent implements OnInit {
     });
   }
 
-  onSubmit(event) {
+  /**
+   * Send the request of shipment and store the data typed by distributor
+   */
+  onSubmitReq() {
     this.contract.setDistValues(this.orderNo1.nativeElement.value,
       this.Role,
       this.deliveryDate1.nativeElement.value,
