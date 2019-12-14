@@ -64,7 +64,7 @@ contract OrderRegistry {
   }
 
   function setReport(string memory orderno,uint category, string memory report) public {
-    if(category == 1) {
+    if( category == 1 ) {
       registry[orderno].dist_report = report;
     }
     if( category == 2 ) {

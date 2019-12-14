@@ -1,15 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ContractService } from '../services/contract.service'
 import { HttpClient } from '@angular/common/http'
-declare var Materialize;
+declare const Materialize;
+
 @Component({
   selector: 'app-retailer',
   templateUrl: './retailer.component.html',
   styleUrls: ['./retailer.component.css']
 })
 export class RetailerComponent implements OnInit {
-Role = 'Retailer';
-dataValue = [];
+  Role = 'Retailer';
+  dataValue = [];
 
   @ViewChild('product') product: any;
   @ViewChild('orderNo') orderNo: any;
@@ -24,32 +25,37 @@ dataValue = [];
   ) { }
 
   ngOnInit() {
-    this.contract.checkReportTrigger.map(result => {
+    console.log('retailer ngOnInit works!');
+    this.contract.checkReportTrigger.subscribe(result => {
+      console.log('result' + result);
       if (result.length >= 1) {
-      this.setData(result);
+      this.setReport(result);
       }
     });
   }
 
   /**
-   * 
-   * @param result 
+   * Check whether there exists report from distributor, if yes, display it
+   * @param result the return result from manufacturer submission
    */
-  setData(result) {
-      if (result[1] == '1') {
-        this.dataValue.push({
-          orderno: result[0],
-          fileInfo: 'https://gateway.ipfs.io/ipfs/' + result[2]
-          }
-        );
-        // this.http.get('http://127.0.0.1:8080/ipfs/' + result[2], { responseType: 'text'}).subscribe(response => {
-        //   this.dataValue.push({orderno: result[0], fileInfo: response + result[2]});
-        // });
-      }
+  setReport(result) {
+    console.log(result);
+    if (result[1] == '1') {
+      this.dataValue.push({
+        orderno: result[0],
+        fileInfo: 'https://gateway.ipfs.io/ipfs/' + result[2]
+        }
+      );
+      // this.http.get('http://127.0.0.1:8080/ipfs/' + result[2], { responseType: 'text'}).subscribe(response => {
+      //   this.dataValue.push({orderno: result[0], fileInfo: response + result[2]});
+      // });
     }
+  }
 
-    
-  onSubmit(event) {
+  /**
+   * Send the request of shipment and store the data typed by retailer
+   */
+  onSubmitReq() {
     this.contract.createOrder(this.orderNo.nativeElement.value,
       this.product.nativeElement.value,
       this.deliveryDate.nativeElement.value.toString(),

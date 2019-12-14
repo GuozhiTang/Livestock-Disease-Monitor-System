@@ -10,7 +10,6 @@ declare const Materialize;
   templateUrl: './distributor.component.html',
   styleUrls: ['./distributor.component.css']
 })
-
 export class DistributorComponent implements OnInit {
 
   dataValue=[];
@@ -44,6 +43,7 @@ export class DistributorComponent implements OnInit {
     });
 
     this.contract.checkReportTrigger.subscribe(result => {
+      console.log('result' + result);
       if (result.length >= 1) {
       this.setReport(result);
       }
@@ -56,8 +56,11 @@ export class DistributorComponent implements OnInit {
    */
   fileUpload(event: any) {
     this.ipfs.fileUpload(event.target.files).subscribe(
-      data => { this.report.nativeElement.value = data.msg; },
-      error => {console.log(error)}
+      data => { 
+        this.report.nativeElement.value = data.msg;
+        console.log('datamsg: ' + data.msg);
+      },
+      error => {console.log('error: ' + error)}
       );
   }
 
@@ -66,11 +69,14 @@ export class DistributorComponent implements OnInit {
    * @param result the return result from manufacturer submission
    */
   setReport(result) {
-    this.dataValue.push({
-      orderno: result[0],
-      fileInfo: 'https://gateway.ipfs.io/ipfs/' + result[2]
+    console.log(result);
+    if (result[1] == '2') {
+      this.dataValue.push({
+        orderno: result[0],
+        fileInfo: 'https://gateway.ipfs.io/ipfs/' + result[2]
+        }
+      );
     }
-  );
     // this.http.get('http://127.0.0.1:8080/ipfs/' + result[2], { responseType: 'text'}).subscribe(response => {
     //   this.dataValue.push({orderno: result[0], fileInfo: response + result[2]});
     // });
@@ -106,7 +112,6 @@ export class DistributorComponent implements OnInit {
     this.contract.setReport(
       this.orderNo.nativeElement.value, 1,
       this.report.nativeElement.value).then(result => {
-      console.log(result);
       Materialize.toast('Shipment sent. Tx id: ' + result.tx, 4000);
     });
   }

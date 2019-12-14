@@ -12,13 +12,13 @@ export class ContractService {
   private ordergenerated = new BehaviorSubject<string>('noop');
   private mfgtrigger = new BehaviorSubject<string>('noop');
   private suppliertrigger = new BehaviorSubject<string>('noop');
-  private reporttigger = new BehaviorSubject<string[]>([]);
+  private reporttrigger = new BehaviorSubject<string[]>([]);
   private reportcat = new BehaviorSubject<string>('noop');
 
   checkOrderGen = this.ordergenerated.asObservable();
   checkMfgTrigger = this.mfgtrigger.asObservable();
   checkSupplierTrigger = this.suppliertrigger.asObservable();
-  checkReportTrigger = this.reporttigger.asObservable();
+  checkReportTrigger = this.reporttrigger.asObservable();
   checkReportCat = this.reportcat.asObservable();
 
   constructor() {
@@ -49,7 +49,7 @@ export class ContractService {
 
     this.OrderRegistry.deployed().then(instance => {
       instance.ReportSubmit().watch((err, resp) => {
-        this.reporttigger.next([resp.args.orderno, String(resp.args.category), resp.args.report]);
+        this.reporttrigger.next([resp.args.orderno, String(resp.args.category), resp.args.report]);
       })
     });
   }

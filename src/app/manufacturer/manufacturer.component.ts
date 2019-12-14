@@ -44,6 +44,7 @@ export class ManufacturerComponent implements OnInit {
       }
     });
     this.contract.checkReportTrigger.subscribe(result => {
+      console.log('result' + result);
       if (result.length >= 1) {
       this.setReport(result);
       }
