@@ -1295,12 +1295,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xbD88329C29B3E2aee9C2E46E9A31a9fc8bFa8b97",
-      "transactionHash": "0x74b1e0fcd2e722f55d86d4339805f78f5b6ea72caf8eeedc7766065e79c1f60d"
+      "address": "0x4ECd62821BA485692b7bBEe074A4eAc7f2Ec1Aaf",
+      "transactionHash": "0xeba5b489bea0bc4bec4c056ed78a5afa5dd6f80cf4e61b4d25ae38a832a7942a"
     }
   },
   "schemaVersion": "3.0.19",
-  "updatedAt": "2019-12-14T05:56:02.274Z",
+  "updatedAt": "2019-12-15T00:25:09.676Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

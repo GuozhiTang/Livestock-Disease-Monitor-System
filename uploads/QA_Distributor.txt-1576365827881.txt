@@ -1,2 +1,0 @@
-It is the QA test report file for distributors!
-***************
