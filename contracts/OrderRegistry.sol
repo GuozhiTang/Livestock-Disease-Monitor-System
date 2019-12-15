@@ -3,23 +3,23 @@ pragma solidity ^0.5.8;
 // To register the exact order with exact user
 contract OrderRegistry {
   struct Order {
-    string supplier_name;
+    string farmer_name;
     string mfg_name;
     string dist_name;
 
-    string supplier_report;
+    string farmer_report;
     string mfg_report;
     string dist_report;
 
-    string supplier_quantity;
+    string farmer_quantity;
     string mfg_quantity;
     string dist_quantity;
 
-    string supplier_value;
+    string farmer_value;
     string mfg_value;
     string dist_value;
 
-    string supplier_date;
+    string farmer_date;
     string mfg_date;
     string dist_date;
 
@@ -33,7 +33,7 @@ contract OrderRegistry {
 
   event OrderGenerated(string orderno);
   event MfgTrigger(string orderno);
-  event SupplyTrigger(string orderno);
+  event FarmerTrigger(string orderno);
   event ReportSubmit(string orderno, uint category, string report);
 
   // To create the order
@@ -56,11 +56,11 @@ contract OrderRegistry {
 
   function setMfgValues(string memory orderno, string memory name, string memory material, string memory delivery, string memory value, string memory quantity) public {
     registry[orderno].mfg_name = name;
-    registry[orderno].supplier_date = delivery;
-    registry[orderno].supplier_value = value;
-    registry[orderno].supplier_quantity = quantity;
+    registry[orderno].farmer_date = delivery;
+    registry[orderno].farmer_value = value;
+    registry[orderno].farmer_quantity = quantity;
     registry[orderno].raw_material_name = material;
-    emit SupplyTrigger(orderno);
+    emit FarmerTrigger(orderno);
   }
 
   function setReport(string memory orderno,uint category, string memory report) public {
@@ -71,7 +71,7 @@ contract OrderRegistry {
       registry[orderno].mfg_report = report;
     }
     if( category == 3 ) {
-      registry[orderno].supplier_report = report;
+      registry[orderno].farmer_report = report;
     }
     emit ReportSubmit(orderno, category, report);
   }
@@ -84,7 +84,7 @@ contract OrderRegistry {
       return registry[orderno].mfg_report;
     }
     if( category == 3 ) {
-      return registry[orderno].supplier_report;
+      return registry[orderno].farmer_report;
     }
     return "undefined";
   }
@@ -104,9 +104,9 @@ contract OrderRegistry {
 
   function getMfgDetails(string memory orderno) public view returns(string memory,string memory,string memory,string memory,string memory) {
     return (registry[orderno].mfg_name,
-    registry[orderno].supplier_date,
-    registry[orderno].supplier_value,
-    registry[orderno].supplier_quantity,
+    registry[orderno].farmer_date,
+    registry[orderno].farmer_value,
+    registry[orderno].farmer_quantity,
     registry[orderno].raw_material_name);
   }
 

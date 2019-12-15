@@ -22,10 +22,11 @@ export class AuthService {
     this.UserRegistry.defaults({from: this.web3.eth.coinbase});
     this.UserRegistry.deployed().then(instance => {
       this.AuthContract = instance;
-      this.AuthContract.setRole('0x6c703a41ee10a8b8fcf7dc04754d25e6a849a14d', 'dist');
-      this.AuthContract.setRole('0x13a9a84ee2fb24e2cf07315bc56c74d3b4c964b6', 'mfg');
-      this.AuthContract.setRole('0xa76e4b9a16b0f3aed91d6f136b1c3c92a3928ee6', 'supplier');
-      this.AuthContract.setRole('0x5493020ba31efe80c45734ecff059d7b6c25353d', 'retail');
+      this.AuthContract.setRole('0x6c703a41ee10a8b8fcf7dc04754d25e6a849a14d', 'distributor');
+      this.AuthContract.setRole('0x13a9a84ee2fb24e2cf07315bc56c74d3b4c964b6', 'manufacturer');
+      this.AuthContract.setRole('0xa76e4b9a16b0f3aed91d6f136b1c3c92a3928ee6', 'farmer');
+      this.AuthContract.setRole('0x5493020ba31efe80c45734ecff059d7b6c25353d', 'retailer');
+      this.AuthContract.setRole('0xeda86cbdc73da2f324a27419c2e9df730912a9e7', 'customer');
     });
   }
 

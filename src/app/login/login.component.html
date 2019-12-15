@@ -8,15 +8,16 @@
     <form>
       <div class="row">
         <div class="file-field input-field col s6 offset-s3">
-          <h5><i class="fas fa-exclamation-triangle"></i> Login with your keystore file and password as a supplier, manufacturer, distributor or retailer at this time:</h5>
+          <h5><i class="fas fa-exclamation-triangle"></i> Login with your keystore file and password as a Farmer, Manufacturer, Distributor, Retailer or Customer</h5>
         </div>
         <div class="file-field input-field col s6 offset-s3">
           <div class="btn cyan darken-3">
             <span><i class="fas fa-file-upload"></i> Keystore</span>
-            <input type="file" (change)="fileChange($event)" >
+            <input type="file" (change)="fileChange($event)">
           </div>
           <div class="file-path-wrapper">
             <input #report class="file-path validate" type="text">
+            <label style="margin-left: 170px;">Upload Keystore File</label>
           </div>
         </div>
         <div class="input-field col s6 offset-s3">

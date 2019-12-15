@@ -51,10 +51,11 @@ export class LoginComponent implements OnInit {
   login() {
     const password = this.passwd.nativeElement.value;
     const response = this.auth.checkCredential(this.fileContent, password).then(result => {
-      if (result == 'dist') { this.router.navigate(['/distributor']); };
-      if (result == 'mfg') { this.router.navigate(['/manufacturer']); };
-      if (result == 'retail') { this.router.navigate(['/retailer']); };
-      if (result == 'supplier') { this.router.navigate(['/supplier']); };
+      if (result == 'distributor') { this.router.navigate(['/distributor']); };
+      if (result == 'manufacturer') { this.router.navigate(['/manufacturer']); };
+      if (result == 'retailer') { this.router.navigate(['/retailer']); };
+      if (result == 'farmer') { this.router.navigate(['/farmer']); };
+      if (result == 'customer') { this.router.navigate(['/customer']); };
     });
   }
 }

@@ -10,20 +10,22 @@ import { HttpClientModule } from '@angular/common/http';
 import { RetailerComponent } from './retailer/retailer.component';
 import { DistributorComponent } from './distributor/distributor.component';
 import { ManufacturerComponent } from './manufacturer/manufacturer.component';
-import { SupplierComponent } from './supplier/supplier.component';
+import { FarmerComponent } from './farmer/farmer.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component'
 
 import { IpfsService } from './services/ipfs.service';
+import { CustomerComponent } from './customer/customer.component';
 
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'supplier', component: SupplierComponent },
+  { path: 'farmer', component: FarmerComponent },
   { path: 'manufacturer', component: ManufacturerComponent },
   { path: 'distributor', component: DistributorComponent },
   { path: 'retailer', component: RetailerComponent },
+  { path: 'customer', component: CustomerComponent },
   // { path: 'navbar', component: NavbarComponent },
 ]
 
@@ -40,9 +42,10 @@ const appRoutes: Routes = [
     RetailerComponent,
     DistributorComponent,
     ManufacturerComponent,
-    SupplierComponent,
+    FarmerComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    CustomerComponent
   ],
   providers: [AuthService, ContractService, IpfsService],
   bootstrap: [AppComponent]

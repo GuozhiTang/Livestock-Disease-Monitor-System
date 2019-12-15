@@ -2,13 +2,6 @@
   <div class="col s10 offset-s1">
     <h5>Your Current Role: <b>{{Role}}</b></h5>
   </div>
-  <!-- <div class="col s6 offset-s3">
-    <ul class="tabs">
-      <li class="tab col s6"><a class="active"  href="#request">Request Shipment</a></li>
-      <li class="tab col s6"><a href="#reports">View Reports</a></li>
-    </ul>
-  </div>
-  <div id="request" class="col s12"> -->
   <form>
     <div class="row">
       <div class="col s12 m10 offset-m1">
@@ -62,39 +55,6 @@
         </div>
       </div>
     </div>
-    <!-- <div class="row">
-      <div class="col s12 m10 offset-m1">
-        <div class="card">
-          <div class="card-content">
-            <div class="row">
-              <div class="col s12">
-                <div class="row">
-                  <div class="input-field col s4">
-                    <input #temp id="temp" type="text" class="validate">
-                    <label for="temp">Temperature</label>
-                  </div>
-                  <div class="input-field col s4">
-                    <input #price id="price" type="text" class="validate">
-                    <label for="price">Price</label>
-                  </div>
-                  <div class="input-field col s4">
-                    <input #quantity id="quantity" type="text" class="validate">
-                    <label for="quantity">Quantity</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col s3 offset-s5">
-                <button class="btn cyan darken-3" type="button" (click)='onSubmitReq($event)' name="action">
-                  <i class="fas fa-satellite-dish"></i> Request Shipment
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </form>
 </div>
 <div id="reports" class="col s12">
@@ -109,12 +69,14 @@
                 <thead>
                   <tr>
                     <th>Order Number</th>
+                    <th>Role</th>
                     <th>View Report</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let data of dataValue">
                     <td>{{data.orderno}}</td>
+                    <td>{{data.role}}</td>
                     <td><a [attr.href]="data.fileInfo" target="_blank"><i class="material-icons">cloud_download</i></a></td>
                   </tr>
                 </tbody>

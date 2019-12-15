@@ -2,16 +2,17 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { IpfsService } from '../services/ipfs.service';
 import 'rxjs/add/operator/map';
 import { ContractService } from '../services/contract.service';
+import * as Report from '../reports';
 declare const Materialize;
 
 @Component({
-  selector: 'app-supplier',
-  templateUrl: './supplier.component.html',
-  styleUrls: ['./supplier.component.css']
+  selector: 'app-farmer',
+  templateUrl: './farmer.component.html',
+  styleUrls: ['./farmer.component.css']
 })
-export class SupplierComponent implements OnInit {
+export class FarmerComponent implements OnInit {
 
-  Role = 'Supplier'
+  Role = 'Farmer'
 
   @ViewChild('product') product: any;
   @ViewChild('orderNo') orderNo: any;
@@ -27,7 +28,7 @@ export class SupplierComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.contract.checkSupplierTrigger.subscribe(result => {
+    this.contract.checkFarmerTrigger.subscribe(result => {
       if (result !== 'noop') {
       this.setData(result);
       }
@@ -78,6 +79,11 @@ export class SupplierComponent implements OnInit {
       this.orderNo.nativeElement.value, 3,
       this.report.nativeElement.value).then(result => {
       Materialize.toast('Shipment sent. Tx id: ' + result.tx, 4000);
+    });
+    Report.reports.push({
+      orderno: this.orderNo.nativeElement.value,
+      role: 'Farmer',
+      fileInfo: 'https://gateway.ipfs.io/ipfs/' + this.report.nativeElement.value
     });
   }
 
