@@ -90,6 +90,36 @@ ipfs daemon
   ```
 Then, we can see our project locally on http://localhost:4200.
 
+All the pages are shown below:
+
+* Home Page/Login Page:
+
+![home](./src/assets/images/home.png)
+
+* Farmer Page
+
+![farm](./src/assets/images/farmer.png)
+
+* Manufacturer Page
+
+![manufacturer1](./src/assets/images/manufacturer1.png)
+
+![manufacturer2](./src/assets/images/manufacturer2.png)
+
+* Distributor Page
+
+![distributor1](./src/assets/images/distributor1.png)
+
+![distributor2](./src/assets/images/distributor2.png)
+
+* Retailer Page
+
+![retailer1](./src/assets/images/retailer1.png)
+
+* Customer Page
+
+![customer](./src/assets/images/customer.png)
+
 ## Acknowledgments
 
 * [Nikhil Bhaskar](https://github.com/Nikhil22) for [Angular CLI + Truffle Starter Dapp](https://github.com/Nikhil22/angular4-truffle-starter-dapp)
