@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
   login() {
     const password = this.passwd.nativeElement.value;
     const response = this.auth.checkCredential(this.fileContent, password).then(result => {
+      console.log('Login as ' + result);
       if (result == 'distributor') { this.router.navigate(['/distributor']); };
       if (result == 'manufacturer') { this.router.navigate(['/manufacturer']); };
       if (result == 'retailer') { this.router.navigate(['/retailer']); };

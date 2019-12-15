@@ -43,7 +43,7 @@ export class ManufacturerComponent implements OnInit {
       }
     });
     this.contract.checkReportTrigger.subscribe(result => {
-      console.log('result' + result);
+      // console.log('result' + result);
       if (result.length >= 1) {
       this.setReport(result);
       }
@@ -59,9 +59,9 @@ export class ManufacturerComponent implements OnInit {
     this.ipfs.fileUpload(event.target.files).subscribe(
       data => { 
         this.report.nativeElement.value = data.msg;
-        console.log('datamsg: ' + data.msg);
+        console.log('Uploaded file Hash: ' + data.msg);
       },
-      error => {console.log('error: ' + error)}
+      error => {console.log('Error: ' + error)}
       );
   }
 
@@ -70,9 +70,9 @@ export class ManufacturerComponent implements OnInit {
    * @param orderno the orderno created by distributor
    */
   setData(orderno) {
-    console.log(orderno);
+    // console.log(orderno);
     this.contract.fetchInitialDetails(orderno).then(result => {
-      console.log(result);
+      // console.log(result);
       Materialize.toast('New Order Received. Order No: ' + orderno, 4000);
       this.product.nativeElement.value = result[0];
       this.orderNo.nativeElement.value = orderno;
@@ -94,9 +94,9 @@ export class ManufacturerComponent implements OnInit {
    * @param result the return result from supplier submission
    */
   setReport(result) {
-    console.log(result);
+    // console.log(result);
     var Role;
-    if (result[1] == '3') Role = 'Supplier';
+    if (result[1] == '3') Role = 'Farmer';
     else if (result[1] == '2') Role = 'Manufacturer';
     else if (result[1] == '1') Role = 'Distributor';
 
@@ -117,7 +117,9 @@ export class ManufacturerComponent implements OnInit {
     this.contract.setReport(
       this.orderNo.nativeElement.value, 2,
       this.report.nativeElement.value).then(result => {
-      Materialize.toast('Shipment sent. Tx id: ' + result.tx, 4000);
+        console.log('Send Shipment with QA File to Distributor:');
+        console.log(result);
+        Materialize.toast('Shipment sent. Tx id: ' + result.tx, 4000);
     });
     Report.reports.push({
       orderno: this.orderNo.nativeElement.value,
@@ -136,8 +138,9 @@ export class ManufacturerComponent implements OnInit {
       this.deliveryDate1.nativeElement.value,
       this.price1.nativeElement.value,
       this.quantity1.nativeElement.value).then(result => {
-      console.log(result);
-      Materialize.toast('Request Created. Tx id: ' + result.tx, 4000);
+        console.log('Send Request to Farmer:');
+        console.log(result);
+        Materialize.toast('Request Created. Tx id: ' + result.tx, 4000);
     });
   }
 }

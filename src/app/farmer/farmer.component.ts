@@ -40,9 +40,9 @@ export class FarmerComponent implements OnInit {
    * @param orderno The order number submitted by manufacturer
    */
   setData(orderno) {
-    console.log(orderno);
+    // console.log(orderno);
     this.contract.getMfgDetails(orderno).then(result => {
-      console.log(result);
+      // console.log(result);
       this.product.nativeElement.value = result[4];
       this.orderNo.nativeElement.value = orderno;
       this.deliveryDate.nativeElement.value = result[1];
@@ -57,14 +57,13 @@ export class FarmerComponent implements OnInit {
    * @param event the upload event with speicific file
    */
   fileUpload(event: any) {
-    console.log(event.target.files);
-    // this.ipfs.fileChange(event.target.files);
+    // console.log(event.target.files);
     this.ipfs.fileUpload(event.target.files).subscribe(
       data => { 
         this.report.nativeElement.value = data.msg;
-        console.log('datamsg: ' + data.msg);
+        console.log('Uploaded file Hash: ' + data.msg);
       },
-      error => {console.log('error: ' + error)}
+      error => {console.log('Error: ' + error)}
     );
   }
 
@@ -72,13 +71,15 @@ export class FarmerComponent implements OnInit {
    * The function to submit the report and relevant information
    */
   onSubmitReport() {
-    console.log(this.orderNo.nativeElement.value);
+    // console.log(this.orderNo.nativeElement.value);
     // the IPFS Hash value
-    console.log(this.report.nativeElement.value);
+    // console.log(this.report.nativeElement.value);
     this.contract.setReport(
       this.orderNo.nativeElement.value, 3,
       this.report.nativeElement.value).then(result => {
-      Materialize.toast('Shipment sent. Tx id: ' + result.tx, 4000);
+        console.log('Send Shipment with QA File to Manufacturer:');
+        console.log(result);
+        Materialize.toast('Shipment sent. Tx id: ' + result.tx, 4000);
     });
     Report.reports.push({
       orderno: this.orderNo.nativeElement.value,

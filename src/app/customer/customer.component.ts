@@ -15,6 +15,7 @@ export class CustomerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('All Reports Info:');
     console.log(Report.reports);
     this.setTable();
   }

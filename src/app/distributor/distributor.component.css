@@ -14,3 +14,10 @@ input:not([type]):disabled+label, input:not([type])[readonly="readonly"]+label, 
 h4 {
   color: #615d5d;
 }
+.flow{
+  background-color: whitesmoke;
+}
+.arrows{
+  font-size: 30px;
+  vertical-align: middle;
+}

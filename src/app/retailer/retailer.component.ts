@@ -23,9 +23,9 @@ export class RetailerComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log('retailer ngOnInit works!');
+    // console.log('retailer ngOnInit works!');
     this.contract.checkReportTrigger.subscribe(result => {
-      console.log('result' + result);
+      // console.log('result' + result);
       if (result.length >= 1) {
       this.setReport(result);
       }
@@ -37,7 +37,7 @@ export class RetailerComponent implements OnInit {
    * @param result the return result from manufacturer submission
    */
   setReport(result) {
-    console.log(result);
+    // console.log(result);
     var Role;
     if (result[1] == '3') Role = 'Supplier';
     else if (result[1] == '2') Role = 'Manufacturer';
@@ -63,8 +63,9 @@ export class RetailerComponent implements OnInit {
       this.temp.nativeElement.value,
       this.price.nativeElement.value,
       this.quantity.nativeElement.value).then(result => {
-      console.log(result);
-      Materialize.toast('Request Created. Tx id: ' + result.tx, 4000);
+        console.log('Send Request to Distributor:');
+        console.log(result);
+        Materialize.toast('Request Created. Tx id: ' + result.tx, 4000);
     });
   }
 
