@@ -1,2 +1,11 @@
-It is the QA test report file for distributors!
+***************
+
+It is the QA test report file from distributors!
+
+Product Name: Ground Pork
+Order No: 0010
+Temperature: 40F
+Price: 12
+Quantity: 200
+
 ***************

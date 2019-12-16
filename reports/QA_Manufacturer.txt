@@ -1,1 +1,10 @@
-It is the QA test report file for manufacturers!
+***************
+
+It is the QA test report file from manufacturers!
+
+Product Name: Ground Pork
+Order No: 0010
+Price: 10
+Quantity: 200
+
+***************
